@@ -88,7 +88,7 @@ function menu_bar_init(){
  */
 function menu_bar_page_alter(&$page){
   $block = module_invoke('panels_mini', 'block_view', variable_get('menu_bar_panel'));
-  if(!empty($block)){
+  if(!empty($block) && !path_is_admin(current_path())){
     $menus = $block['content'];
 
     $page['page_bottom']['menu_bar']['#markup'] = '<div class="menu-bar-menu narrow"><div class="js-menu-bar-toggle"></div>'.$menus.'</div>';
