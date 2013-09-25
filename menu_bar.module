@@ -69,7 +69,7 @@ function menu_bar_init(){
   $menu_bar_panel = variable_get('menu_bar_panel', '<none>');
 
   // check if we should add all the stuff
-  if($menu_bar_panel !== '<none>'){
+  if($menu_bar_panel !== '<none>' && !path_is_admin(current_path())){
     drupal_add_js(drupal_get_path('module', 'menu_bar') . '/js/menu_bar.js');
     drupal_add_css(drupal_get_path('module', 'menu_bar') . '/css/menu_bar.css');
 
