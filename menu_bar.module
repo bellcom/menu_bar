@@ -58,6 +58,11 @@ function menu_bar_admin_form(){
     '#default_value' => variable_get('menu_bar_wide_width', 160),
   );
 
+  $form['menu_bar_hide_no_login'] = array(
+    '#title' => t('Hide the menubar if the user is not logged in'),
+    '#type' => 'checkbox',
+    '#default_value' => variable_get('menu_bar_hide_no_login', TRUE),
+  );
   return system_settings_form($form);
 }
 
@@ -65,6 +70,12 @@ function menu_bar_admin_form(){
  * Implements hook_init()
  */
 function menu_bar_init(){
+  global $user;
+  $hide_no_login = variable_get('menu_bar_hide_no_login', TRUE);
+
+  if(!$user->uid && $hide_no_login){
+    return;
+  }
   // Load panel id
   $menu_bar_panel = variable_get('menu_bar_panel', '<none>');
 
@@ -87,6 +98,14 @@ function menu_bar_init(){
  * Implements hook_page_alter
  */
 function menu_bar_page_alter(&$page){
+  global $user;
+  $hide_no_login = variable_get('menu_bar_hide_no_login', TRUE);
+
+
+  if(!$user->uid && $hide_no_login){
+    return;
+  }
+
   $block = module_invoke('panels_mini', 'block_view', variable_get('menu_bar_panel'));
   if(!empty($block) && !path_is_admin(current_path())){
     $menus = $block['content'];
