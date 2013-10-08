@@ -76,6 +76,7 @@ function menu_bar_init(){
   if(!$user->uid && $hide_no_login){
     return;
   }
+
   // Load panel id
   $menu_bar_panel = variable_get('menu_bar_panel', '<none>');
 

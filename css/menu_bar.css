@@ -17,10 +17,6 @@
   display: block;
 }
 
-.menu-bar-menu.narrow {
-  overflow: hidden;
-}
-
 .menu-bar-menu.narrow ul.menu {
   width: 45px;
   overflow: hidden;
