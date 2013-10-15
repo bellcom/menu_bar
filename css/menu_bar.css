@@ -33,6 +33,7 @@
   background-image: url(img/toggle.png);
   background-repeat: no-repeat;
   background-position: 50%;
+  margin-top: 100px;
 }
 
 .menu-bar-menu.narrow .pane-title {
