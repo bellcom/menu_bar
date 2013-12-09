@@ -116,6 +116,6 @@ function menu_bar_page_alter(&$page){
   if(!empty($block) && !path_is_admin(current_path()) && !drupal_match_path(request_uri(), implode("\n", $ignore_uris))){
     $menus = $block['content'];
 
-    $page['page_bottom']['menu_bar']['#markup'] = '<div class="menu-bar-menu narrow"><div class="js-menu-bar-toggle"></div>'.$menus.'</div>';
+    $page['page_bottom']['menu_bar']['#markup'] = '<div class="menu-bar-menu narrow"><div class="menu-bar-inner"><div class="js-menu-bar-toggle"></div>'.$menus.'</div></div>';
   }
 }
