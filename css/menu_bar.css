@@ -38,4 +38,5 @@
 
 .menu-bar-menu.narrow .pane-title {
   text-indent: -11111px;
+  display: none;
 }

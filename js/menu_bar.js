@@ -5,7 +5,7 @@
       var $menu_bar = $('.menu-bar-menu');
 
       if ($menu_bar.length) {
-        $('body').css('padding-left', 55);
+        $('body').css('margin-left', 55);
 
         var time = 200;
         var narrow_width = Drupal.settings.menu_bar.narrow_width;
@@ -20,7 +20,7 @@
           $menu_bar.removeClass('narrow');
           });
           $('.js-menu-bar-toggle').animate({left: wide_width}, this.time);
-          $('body').animate({'padding-left': wide_width}, this.time);
+          $('body').animate({'margin-left': wide_width}, this.time);
           document.cookie = 'menu_bar=wide;expires=0;';
         };
 
@@ -28,7 +28,7 @@
           $menu_bar.animate({width: narrow_width}, time);
           $menu_bar.addClass('narrow');
           $('.js-menu-bar-toggle').animate({left: narrow_width}, time);
-          $('body').animate({'padding-left': narrow_width}, time);
+          $('body').animate({'margin-left': narrow_width}, time);
           document.cookie = 'menu_bar=narrow;expires=0;';
         };
 
